@@ -88,7 +88,7 @@ Future<T> _showCupertinoBottomSheet<T>(
           return Material(
             color: Colors.transparent,
             child: CupertinoActionSheetAction(
-              onPressed: action.onPressed,
+              onPressed: () => action.onPressed(coxt),
               child: Row(
                 children: [
                   if (action.leading != null) ...[
@@ -173,7 +173,7 @@ Future<T> _showMaterialBottomSheet<T>(
               ],
               ...actions.map<Widget>((action) {
                 return InkWell(
-                  onTap: action.onPressed,
+                  onTap: () => action.onPressed(coxt),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
